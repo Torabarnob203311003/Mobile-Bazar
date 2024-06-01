@@ -18,7 +18,7 @@
 //   step 2 : create a div 
   const phoneCard = document.createElement('div')
 //   step 3. set the class 
-  phoneCard.classList =(`card w-96 bg-base-100 shadow-xl`)
+  phoneCard.classList =(`card  bg-base-100 shadow-xl`)
    phoneCard.innerHTML = ` <figure><img src="${phone.image}" alt="Shoes" /></figure>
 <div class="card-body">
     <h2 class="card-title"> ${phone.phone_name} </h2>
@@ -35,4 +35,13 @@
 
 
   }
+  //handel search button
+
+ const handelSearch = () =>{
+
+  const searchFeild = document.getElementById('search-feild')
+  const searchText = searchFeild.value
+    console.log(searchText)
+ }
+
   loadPhone()
