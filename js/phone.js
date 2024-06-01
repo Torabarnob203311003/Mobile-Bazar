@@ -5,7 +5,7 @@
   const phones = data.data;
   diplayPhones(phones)
   phones = '';
-
+  
 
  }
   const diplayPhones  = phones => {
@@ -14,6 +14,10 @@
      const phoneContainer= document.getElementById('phone-container')
      //clear container using ''
      phoneContainer.textContent ='';
+
+     //display first 10 phones
+     phones=phones.slice(0,12);
+
 //  console.log(phones)
  phones.forEach( phone =>{
 
