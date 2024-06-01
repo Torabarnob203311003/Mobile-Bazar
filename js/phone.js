@@ -41,6 +41,7 @@
   //handel search button
 
  const handelSearch = () =>{
+    toggleLoadingSpiner();
 
   const searchFeild = document.getElementById('search-feild')
   const searchText = searchFeild.value
@@ -48,4 +49,11 @@
     loadPhone(searchText)
  }
 
-//   loadPhone()
+ // addiong toogle spiner
+  const toggleLoadingSpiner = ( ) =>
+{
+   const loadingSpiner = document.getElementById('loading-spinner')   
+   loadingSpiner.classList.remove('hidden') ;
+
+}
+    //   loadPhone()
