@@ -58,6 +58,7 @@
 {
    const loadingSpiner = document.getElementById('loading-spinner')   
    loadingSpiner.classList.remove('hidden') ;
+   console.log(loadingSpiner) // remove it first
 
 }
     //   loadPhone()
