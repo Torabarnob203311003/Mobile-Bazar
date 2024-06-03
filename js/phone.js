@@ -1,14 +1,14 @@
- const loadPhone = async (searchText) => {
+ const loadPhone = async (searchText,isShowall) => {
 
  const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
  const data = await res.json();
   const phones = data.data;
-  diplayPhones(phones)
+  diplayPhones(phones,isShowall)
   phones = '';
   
 
  }
-  const diplayPhones  = phones => {
+  const diplayPhones  = (phones,isShowall) => {
 
     // step 1 : get element by id
      const phoneContainer= document.getElementById('phone-container')
@@ -17,7 +17,8 @@
 
       // if phones are  less then 12 show all button show and much will hide 
        const showAllButton =  document.getElementById ('showallbutton')
-       if(phones.length > 12){
+       console.log('is show all', isShowall)
+       if(phones.length > 12&& !isShowall){
           showAllButton.classList.remove('hidden')
 
        }
@@ -26,8 +27,11 @@
                   showAllButton.classList.add('hidden')
        }
 
-     //display first 10 phones
-     phones=phones.slice(0,12);
+     //display first 10 phones  IS not show all
+ if (!isShowall){
+       phones=phones.slice(0,12);
+
+ }
 
 //  console.log(phones)
  phones.forEach( phone =>{
@@ -56,13 +60,13 @@
   }
   //handel search button
 
- const handelSearch = () =>{
+ const handelSearch = (isShowall) =>{
     toggleLoadingSpiner(true); // calling here the spiner function
 
   const searchFeild = document.getElementById('search-feild')
   const searchText = searchFeild.value
     console.log(searchText)
-    loadPhone(searchText)
+    loadPhone(searchText,isShowall)
  }
  
  // addiong toogle spiner
@@ -81,3 +85,9 @@
  }
 }
     //   loadPhone()
+
+     const handelClickShowall=()=>{
+      handelSearch(true);
+
+
+     }
