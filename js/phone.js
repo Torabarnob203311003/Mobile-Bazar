@@ -40,12 +40,13 @@
 
  })
 
-
+     // hide loading spinner
+     toggleLoadingSpiner(false); // calling here the spiner function
   }
   //handel search button
 
  const handelSearch = () =>{
-    toggleLoadingSpiner();
+    toggleLoadingSpiner(true); // calling here the spiner function
 
   const searchFeild = document.getElementById('search-feild')
   const searchText = searchFeild.value
@@ -54,11 +55,18 @@
  }
 
  // addiong toogle spiner
-  const toggleLoadingSpiner = ( ) =>
+  const toggleLoadingSpiner = (isLoading ) =>
 {
    const loadingSpiner = document.getElementById('loading-spinner')   
-   loadingSpiner.classList.remove('hidden') ;
-   console.log(loadingSpiner) // remove it first
+  //  loadingSpiner.classList.remove('hidden') ;
+  //  console.log(loadingSpiner) // remove it first
+ if   (isLoading){
+    loadingSpiner.classList.remove('hidden') ;
 
+ }
+ else{
+    loadingSpiner.classList.add('hidden') ;
+
+ }
 }
     //   loadPhone()
