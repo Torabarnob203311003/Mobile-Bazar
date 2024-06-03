@@ -15,6 +15,17 @@
      //clear container using ''
      phoneContainer.textContent ='';
 
+      // if phones are  less then 12 show all button show and much will hide 
+       const showAllButton =  document.getElementById ('showallbutton')
+       if(phones.length > 12){
+          showAllButton.classList.remove('hidden')
+
+       }
+       else{
+
+                  showAllButton.classList.add('hidden')
+       }
+
      //display first 10 phones
      phones=phones.slice(0,12);
 
@@ -53,7 +64,7 @@
     console.log(searchText)
     loadPhone(searchText)
  }
-
+ 
  // addiong toogle spiner
   const toggleLoadingSpiner = (isLoading ) =>
 {
