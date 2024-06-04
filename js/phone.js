@@ -45,8 +45,8 @@
 <div class="card-body">
     <h2 class="card-title"> ${phone.phone_name} </h2>
     <p>${phone.slug}</p>
-    <div class="card-actions justify-end">
-        <button class="btn btn-primary">Buy Now</button>
+    <div class="card-actions justify-center">
+        <button onclick="handelshowdetails('${phone.slug}')" class="btn btn-warning font-extrabold mt-5">Show Details</button>
     </div>
 
    `;
@@ -89,5 +89,13 @@
      const handelClickShowall=()=>{
       handelSearch(true);
 
+
+     }
+
+     const handelshowdetails=async (id)=>{
+
+      const res= await fetch(` https://openapi.programming-hero.com/api/phone/${id}`)
+      const data = await res.json();
+      console.log(data)
 
      }
