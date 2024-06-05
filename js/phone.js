@@ -4,7 +4,7 @@
  const data = await res.json();
   const phones = data.data;
   diplayPhones(phones,isShowall)
-  phones = ''
+//   phones = ''
   
 
  }
@@ -98,15 +98,36 @@
       const data = await res.json();
       const phone = data.data
       console.log(phone)
+      showdetailsData(phone)
 
      }
 
-      const showdetailsData= (phones )=>{
+      const showdetailsData= (phone)=>{
          console.log(phone)
 
 
         const phoneName = document.getElementById('phone-title')
-        phoneName.innerText= phones.brand;
+        phoneName.innerText= phone.name;
+        const showotherDetails = document.getElementById('showalldetails-here')
+        showotherDetails.innerHTML = ` <div class="card  bg-base-100 shadow-xl">
+        <figure><img src="${phone.image}" alt="phonepicture" /></figure>
+        <div>
+        
+                           <p class="text2xl mt-5">Chipset:${phone.mainFeatures.chipSet
+                  }</p>
+                           <p class="text2xl mt-5">Memory:${phone.mainFeatures.memory
+                  }</p>
+                           <p class="text2xl mt-5">DisplaySize:${phone.mainFeatures.displaySize
+                  }</p>
+                           <p class="text2xl mt-5">
+                  ReleaseDate:${phone.releaseDate
+}</p>
+
+
+</div>
+      
+        
+        `
 
 
          my_modal_1.showModal()
