@@ -4,7 +4,7 @@
  const data = await res.json();
   const phones = data.data;
   diplayPhones(phones,isShowall)
-  phones = '';
+  phones = ''
   
 
  }
@@ -46,7 +46,7 @@
     <h2 class="card-title"> ${phone.phone_name} </h2>
     <p>${phone.slug}</p>
     <div class="card-actions justify-center">
-        <button onclick="handelshowdetails('${phone.slug}')" class="btn btn-warning font-extrabold mt-5">Show Details</button>
+        <button onclick="handelshowdetails('${phone.slug}'),my_modal_1.showModal()" class="btn btn-warning font-extrabold mt-5">Show Details</button>
     </div>
 
    `;
@@ -96,6 +96,19 @@
 
       const res= await fetch(` https://openapi.programming-hero.com/api/phone/${id}`)
       const data = await res.json();
-      console.log(data)
+      const phone = data.data
+      console.log(phone)
 
      }
+
+      const showdetailsData= (phones )=>{
+         console.log(phone)
+
+
+        const phoneName = document.getElementById('phone-title')
+        phoneName.innerText= phones.brand;
+
+
+         my_modal_1.showModal()
+      } 
+      
